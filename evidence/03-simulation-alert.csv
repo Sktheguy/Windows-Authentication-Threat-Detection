@@ -1,0 +1,2 @@
+﻿"DetectionTime","FirstFailure","LastFailure","Account","FailedAttempts","SourceIPs","Severity","DetectionRule","DataSource"
+"2026-11-23 18:52:24","2026-11-23 18:48:54","2026-11-23 18:50:54","SOC-LAB-USER","5","192.0.2.10","Medium","Five Failed Logons in Five Minutes","SIMULATION"
