@@ -1,0 +1,22 @@
+# Backup files
+*.backup
+*.bak
+*.tmp
+
+# Raw Windows event logs
+*.evtx
+*.log
+
+# Generated security reports
+SOC-Detection-Reports/
+SOC-Alerts-*.csv
+
+# Credentials and environment files
+.env
+.env.*
+*.pem
+*.key
+
+# Operating system files
+Thumbs.db
+.DS_Store
