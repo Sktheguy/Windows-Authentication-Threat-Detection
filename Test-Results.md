@@ -218,13 +218,13 @@ The tests did not require:
 
 
 
-\- Password guessing against real accounts
+- Password guessing against real accounts
 
-\- Account lockouts
+- Account lockouts
 
-\- Modification of Windows Security event records
+- Modification of Windows Security event records
 
-\- External network attacks
+- External network attacks
 
 
 
@@ -232,7 +232,7 @@ The documentation IP address `192.0.2.10` was used for simulation.
 
 
 
-\## 9. Overall Assessment
+## 9. Overall Assessment
 
 
 
@@ -240,17 +240,17 @@ The prototype successfully demonstrated:
 
 
 
-\- Configurable threshold-based detection
+- Configurable threshold-based detection
 
-\- Sliding-window analysis
+- Sliding-window analysis
 
-\- Account-level correlation
+- Account-level correlation
 
-\- Positive and negative test scenarios
+- Positive and negative test scenarios
 
-\- Live Windows Security log querying
+- Live Windows Security log querying
 
-\- Automatic CSV alert reporting
+- Automatic CSV alert reporting
 
 
 
@@ -262,13 +262,13 @@ It is not yet a production-ready intrusion detection system.
 
 
 
-\## 10. Remaining Validation Work
+## 10. Remaining Validation Work
 
 
 
-\- Automate the negative test cases against the saved detector.
+- Automate the negative test cases against the saved detector.
 
-\- Validate parsing of genuine Event ID 4625 records.
+- Validate parsing of genuine Event ID 4625 records.
 
 \- Test multiple source IP addresses.
 
