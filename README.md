@@ -1,8 +1,8 @@
-\# Windows Authentication Threat Detection
+# Windows Authentication Threat Detection
 
 
 
-\## Project Overview
+## Project Overview
 
 
 
@@ -18,41 +18,41 @@ It supports both live Windows Security log analysis and simulated authentication
 
 
 
-\## Objectives
+## Objectives
 
 
 
-\- Investigate Windows authentication events.
+- Investigate Windows authentication events.
 
-\- Develop a configurable brute-force detection rule.
+- Develop a configurable brute-force detection rule.
 
-\- Implement PowerShell-based security event analysis.
+- Implement PowerShell-based security event analysis.
 
-\- Validate detection logic using simulated events.
+- Validate detection logic using simulated events.
 
-\- Export structured alerts to CSV.
+- Export structured alerts to CSV.
 
-\- Document detection results and limitations.
-
-
-
-\## Technologies
+- Document detection results and limitations.
 
 
 
-\- Windows Security Event Logs
-
-\- Windows Event IDs 4624 and 4625
-
-\- PowerShell
-
-\- Windows Event Viewer
-
-\- CSV reporting
+## Technologies
 
 
 
-\## Detection Logic
+- Windows Security Event Logs
+
+- Windows Event IDs 4624 and 4625
+
+- PowerShell
+
+- Windows Event Viewer
+
+- CSV reporting
+
+
+
+## Detection Logic
 
 
 
@@ -60,15 +60,15 @@ Default detection parameters:
 
 
 
-\- Event ID: 4625 — Failed Logon
+- Event ID: 4625 — Failed Logon
 
-\- Threshold: 5 failed authentication attempts
+- Threshold: 5 failed authentication attempts
 
-\- Detection window: 5 minutes
+- Detection window: 5 minutes
 
-\- Grouping: Target account
+- Grouping: Target account
 
-\- Initial severity: Medium
+- Initial severity: Medium
 
 
 
@@ -80,11 +80,11 @@ An alert represents potentially suspicious activity requiring investigation, not
 
 
 
-\## Operating Modes
+## Operating Modes
 
 
 
-\### Simulation Mode
+### Simulation Mode
 
 
 
@@ -100,7 +100,7 @@ Runs controlled, in-memory authentication events without generating real failed 
 
 
 
-\### Live Mode
+### Live Mode
 
 
 
@@ -120,7 +120,7 @@ Live mode may require an elevated PowerShell session or appropriate Security log
 
 
 
-\## Alert Reporting
+## Alert Reporting
 
 
 
@@ -128,25 +128,25 @@ When a detection threshold is reached, the script exports a structured CSV repor
 
 
 
-\- Detection timestamp
+- Detection timestamp
 
-\- First and last failed authentication timestamps
+- First and last failed authentication timestamps
 
-\- Target account
+- Target account
 
-\- Failed attempt count
+- Failed attempt count
 
-\- Recorded source IP addresses
+- Recorded source IP addresses
 
-\- Severity
+- Severity
 
-\- Detection rule
+- Detection rule
 
-\- Data source (LIVE or SIMULATION)
+- Data source (LIVE or SIMULATION)
 
 
 
-\## Validation Results
+## Validation Results
 
 
 
@@ -178,43 +178,43 @@ The initial negative scenarios were validated during interactive PowerShell test
 
 
 
-\## Limitations
+## Limitations
 
 
 
-\- The detector runs on demand; it does not continuously monitor authentication events.
+- The detector runs on demand; it does not continuously monitor authentication events.
 
-\- Detection groups events by account rather than by account and source IP.
+- Detection groups events by account rather than by account and source IP.
 
-\- Repeated execution against the same events may generate duplicate reports.
+- Repeated execution against the same events may generate duplicate reports.
 
-\- Source IP information may be absent for certain Windows logon types.
+- Source IP information may be absent for certain Windows logon types.
 
-\- A threshold-based alert may include legitimate authentication failures.
+- A threshold-based alert may include legitimate authentication failures.
 
-\- The simulation tests detection logic but does not establish end-to-end detection of a real attack.
-
-
-
-\## Future Improvements
+- The simulation tests detection logic but does not establish end-to-end detection of a real attack.
 
 
 
-\- Continuous event monitoring
-
-\- Source IP correlation
-
-\- Alert deduplication
-
-\- Severity scoring
-
-\- SIEM integration
-
-\- Automated regression testing
+## Future Improvements
 
 
 
-\## Security and Privacy
+- Continuous event monitoring
+
+- Source IP correlation
+
+- Alert deduplication
+
+- Severity scoring
+
+- SIEM integration
+
+- Automated regression testing
+
+
+
+## Security and Privacy
 
 
 
@@ -222,7 +222,7 @@ All public sample alerts should use simulated or anonymised data. Real Windows a
 
 
 
-\## Project Classification
+## Project Classification
 
 
 
