@@ -1,8 +1,8 @@
-\# Test Results — Windows Authentication Threat Detection
+# Test Results — Windows Authentication Threat Detection
 
 
 
-\## 1. Testing Objective
+## 1. Testing Objective
 
 
 
@@ -10,21 +10,21 @@ Validate the detector's ability to identify repeated authentication failures, av
 
 
 
-\## 2. Test Environment
+## 2. Test Environment
 
 
 
-\- Operating system: Windows
+- Operating system: Windows
 
-\- Scripting environment: PowerShell
+- Scripting environment: PowerShell
 
-\- Log source: Windows Security Event Log
+- Log source: Windows Security Event Log
 
-\- Relevant event IDs: 4624 and 4625
+- Relevant event IDs: 4624 and 4625
 
-\- Simulation method: In-memory PowerShell objects
+- Simulation method: In-memory PowerShell objects
 
-\- Report format: CSV
+- Report format: CSV
 
 
 
@@ -32,7 +32,7 @@ Tests were conducted locally in a controlled learning environment.
 
 
 
-\## 3. Detection Test Matrix
+## 3. Detection Test Matrix
 
 
 
@@ -62,35 +62,35 @@ Tests T02–T04 were performed interactively against the detection logic. They h
 
 
 
-\## 4. Positive Detection Test
+## 4. Positive Detection Test
 
 
 
-\*\*Scenario:\*\* Seven failed authentication events targeting the same simulated account.
+*\*Scenario:\*\* Seven failed authentication events targeting the same simulated account.
 
 
 
-\*\*Test account:\*\* `SOC-LAB-USER`
+*\*Test account:\*\* `SOC-LAB-USER`
 
 
 
-\*\*Simulated source IP:\*\* `192.0.2.10`
+*\*Simulated source IP:\*\* `192.0.2.10`
 
 
 
-\*\*Event ID:\*\* 4625
+*\*Event ID:\*\* 4625
 
 
 
-\*\*Threshold:\*\* Five failures
+*\*Threshold:\*\* Five failures
 
 
 
-\*\*Window:\*\* Five minutes
+*\*Window:\*\* Five minutes
 
 
 
-\*\*Observed result:\*\* The detector generated an alert after identifying the first qualifying five-failure window.
+*\*Observed result:\*\* The detector generated an alert after identifying the first qualifying five-failure window.
 
 
 
@@ -98,15 +98,15 @@ The generated CSV contained the alert timestamp, affected account, failure count
 
 
 
-\*\*Outcome: PASS\*\*
+*\*Outcome: PASS\*\*
 
 
 
-\## 5. Negative Detection Tests
+## 5. Negative Detection Tests
 
 
 
-\### T02 — Below Threshold
+### T02 — Below Threshold
 
 
 
@@ -114,11 +114,11 @@ Three failed logons occurred within five minutes.
 
 
 
-\*\*Observed:\*\* No alert.
+*\*Observed:\*\* No alert.
 
 
 
-\### T03 — Outside Detection Window
+### T03 — Outside Detection Window
 
 
 
@@ -126,11 +126,11 @@ Five failures were distributed over twenty minutes.
 
 
 
-\*\*Observed:\*\* No alert.
+*\*Observed:\*\* No alert.
 
 
 
-\### T04 — Multiple Accounts
+### T04 — Multiple Accounts
 
 
 
@@ -138,7 +138,7 @@ Failures were distributed across three accounts, with no individual account reac
 
 
 
-\*\*Observed:\*\* No alert.
+*\*Observed:\*\* No alert.
 
 
 
@@ -146,7 +146,7 @@ These results demonstrate that the tested detection logic considers both event t
 
 
 
-\## 6. Live Mode Validation
+## 6. Live Mode Validation
 
 
 
@@ -154,7 +154,7 @@ The detector was executed against the actual Windows Security log using Event ID
 
 
 
-\*\*Observed output:\*\*
+*\*Observed output:\*\*
 
 
 
@@ -170,7 +170,7 @@ NO DATA: No matching authentication failures found.
 
 
 
-\*\*Outcome: PASS — Live log query and empty-result handling.\*\*
+*\*Outcome: PASS — Live log query and empty-result handling.\*\*
 
 
 
@@ -178,7 +178,7 @@ No genuine failed-logon events were returned during this test. Consequently, liv
 
 
 
-\## 7. CSV Reporting Validation
+## 7. CSV Reporting Validation
 
 
 
@@ -186,27 +186,27 @@ The saved detector was executed in Simulation Mode.
 
 
 
-\*\*Observed:\*\*
+*\*Observed:\*\*
 
 
 
-\- Simulated events collected: 7
+- Simulated events collected: 7
 
-\- Detection alert generated: Yes
+- Detection alert generated: Yes
 
-\- CSV automatically exported: Yes
+- CSV automatically exported: Yes
 
-\- Structured alert fields verified: Yes
+- Structured alert fields verified: Yes
 
-\- DataSource: SIMULATION
-
-
-
-\*\*Outcome: PASS\*\*
+- DataSource: SIMULATION
 
 
 
-\## 8. Security and Safety
+*\*Outcome: PASS\*\*
+
+
+
+## 8. Security and Safety
 
 
 
