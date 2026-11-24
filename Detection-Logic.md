@@ -1,8 +1,8 @@
-\# Detection Logic — Windows Authentication Threat Detection
+# Detection Logic — Windows Authentication Threat Detection
 
 
 
-\## 1. Detection Objective
+## 1. Detection Objective
 
 
 
@@ -14,15 +14,15 @@ The detector is designed as an introductory SOC detection engineering project. I
 
 
 
-\## 2. Data Sources
+## 2. Data Sources
 
 
 
-\*\*Live Mode:\*\* Windows Security Event Log, collected through PowerShell `Get-WinEvent`.
+*\*Live Mode:\*\* Windows Security Event Log, collected through PowerShell `Get-WinEvent`.
 
 
 
-\*\*Simulation Mode:\*\* In-memory PowerShell objects representing failed authentication events.
+*\*Simulation Mode:\*\* In-memory PowerShell objects representing failed authentication events.
 
 
 
@@ -48,7 +48,7 @@ Live event fields are extracted from Windows Event XML, including `TargetDomainN
 
 
 
-\## 3. Detection Parameters
+## 3. Detection Parameters
 
 
 
@@ -70,7 +70,7 @@ The threshold and window are configurable.
 
 
 
-\## 4. Sliding-Window Detection Algorithm
+## 4. Sliding-Window Detection Algorithm
 
 
 
@@ -96,7 +96,7 @@ The detector:
 
 
 
-\### Example
+### Example
 
 
 
@@ -120,11 +120,11 @@ Five failed logons against `SOC-LAB-USER`:
 
 
 
-\*\*Result:\*\* Alert generated because five failures occurred within five minutes.
+*\*Result:\*\* Alert generated because five failures occurred within five minutes.
 
 
 
-\### Detection pseudocode
+### Detection pseudocode
 
 
 
@@ -154,7 +154,7 @@ FOR EACH account:
 
 
 
-\## 5. Alert Generation
+## 5. Alert Generation
 
 
 
@@ -162,23 +162,23 @@ An alert contains:
 
 
 
-\- DetectionTime
+- DetectionTime
 
-\- FirstFailure
+- FirstFailure
 
-\- LastFailure
+- LastFailure
 
-\- Account
+- Account
 
-\- FailedAttempts
+- FailedAttempts
 
-\- SourceIPs
+- SourceIPs
 
-\- Severity
+- Severity
 
-\- DetectionRule
+- DetectionRule
 
-\- DataSource
+- DataSource
 
 
 
@@ -194,7 +194,7 @@ The DetectionRule field dynamically reflects the configured failure threshold an
 
 
 
-\## 6. Detection Interpretation
+## 6. Detection Interpretation
 
 
 
@@ -202,15 +202,15 @@ Repeated authentication failures may indicate:
 
 
 
-\- Password guessing
+- Password guessing
 
-\- Brute-force attempts
+- Brute-force attempts
 
-\- Misconfigured services
+- Misconfigured services
 
-\- Expired credentials
+- Expired credentials
 
-\- Legitimate user mistakes
+- Legitimate user mistakes
 
 
 
@@ -218,45 +218,45 @@ An alert requires further triage, including reviewing the source address, logon 
 
 
 
-\## 7. Known Limitations
+## 7. Known Limitations
 
 
 
-\- Runs on demand rather than continuously.
+- Runs on demand rather than continuously.
 
-\- Groups by account only.
+- Groups by account only.
 
-\- Does not correlate successful authentication after failures.
+- Does not correlate successful authentication after failures.
 
-\- Does not automatically suppress duplicate alerts between executions.
+- Does not automatically suppress duplicate alerts between executions.
 
-\- Does not automatically classify legitimate versus malicious failures.
+- Does not automatically classify legitimate versus malicious failures.
 
-\- Cannot establish that an attack succeeded.
+- Cannot establish that an attack succeeded.
 
-\- Some Windows logon events do not provide a usable source IP address.
+- Some Windows logon events do not provide a usable source IP address.
 
-\- Current simulation mode provides a fixed positive test scenario.
-
-
-
-\## 8. Future Engineering Improvements
+- Current simulation mode provides a fixed positive test scenario.
 
 
 
-\- Add automated positive and negative regression tests.
+## 8. Future Engineering Improvements
 
-\- Support account-and-IP correlation.
 
-\- Introduce alert deduplication.
 
-\- Add event status and logon type enrichment.
+- Add automated positive and negative regression tests.
 
-\- Correlate Event IDs 4625 and 4624.
+- Support account-and-IP correlation.
 
-\- Implement continuous monitoring.
+- Introduce alert deduplication.
 
-\- Integrate with a SIEM.
+- Add event status and logon type enrichment.
+
+- Correlate Event IDs 4625 and 4624.
+
+- Implement continuous monitoring.
+
+- Integrate with a SIEM.
 
 
 
